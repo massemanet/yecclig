@@ -1,0 +1,3 @@
+typedef realtype1 onetype;
+typedef realtype2 twotype;
+realtype3 afunc (onetype onearg, twotype twoarg);
