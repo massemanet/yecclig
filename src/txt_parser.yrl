@@ -1,14 +1,18 @@
 Nonterminals
-adjectives sentence.
+adjectives sentence sentences.
 
 Terminals
-article noun adjective.
+article noun adjective
+'.' .
 
-Rootsymbol sentence.
+Rootsymbol sentences.
 
-sentence -> article noun            : {'$1',[],'$2'}.
-sentence -> adjectives noun         : {[],'$1','$2'}.
-sentence -> article adjectives noun : {'$1','$2','$3'}.
+sentences -> sentence sentences : ['$1'|'$2'].
+sentences -> sentence           : ['$1'].
+
+sentence -> article noun '.'            : {sentence,{'$1',[],'$2'}}.
+sentence -> adjectives noun '.'         : {sentence,{[],'$1','$2'}}.
+sentence -> article adjectives noun '.' : {sentence,{'$1','$2','$3'}}.
 
 adjectives -> adjective adjectives : ['$1'|'$2'].
 adjectives -> adjective            : ['$1'].

@@ -1,7 +1,8 @@
 Definitions.
-WS = [^a-zA-Z]+
+WS = [^a-zA-Z\.]+
 
 Rules.
+\.       : {token,{'.',TokenLine}}.
 red      : {token,{adjective,TokenLine,TokenChars}}.
 orange   : {token,{adjective,TokenLine,TokenChars}}.
 salty    : {token,{adjective,TokenLine,TokenChars}}.
