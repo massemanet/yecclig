@@ -6,14 +6,14 @@ WS  = [\s\t\r\n\v]
 
 Rules.
 
-typedef    : {token, "TYPEDEF"}.
+typedef    : {token, {'TYPEDEF',TokenLine}}.
 
-{L}{A}*    : {token, {"identifier",TokenChars}}.
+{L}{A}*    : {token, {'IDENTIFIER',TokenLine,TokenChars}}.
 
-,          : {token, ","}.
-;          : {token, ";"}.
-\(         : {token, "("}.
-\)         : {token, ")"}.
+,          : {token, {',',TokenLine}}.
+;          : {token, {';',TokenLine}}.
+\(         : {token, {'(',TokenLine}}.
+\)         : {token, {')',TokenLine}}.
 
 #.*\n      : skip_token.               % line info from preproc
 {WS}+      : skip_token.               % whitespace separates tokens
