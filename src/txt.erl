@@ -3,6 +3,14 @@
 -export([string/1]).
 
 string(Str) ->
-  {ok, Scan, _Line} = txt_scanner:string(Str),
-  {ok, Exp} = txt_parser:parse(Scan),
-  Exp.
+  case txt_scanner:string(Str) of
+    {ok, Scan, _Line} ->
+      case txt_parser:parse(Scan) of
+        {ok, Exp} ->
+          Exp;
+        {error,Err} ->
+          error({parse_error,Err})
+      end;
+    {error,Err,_Line} ->
+      error({scan_error,Err})
+  end.
