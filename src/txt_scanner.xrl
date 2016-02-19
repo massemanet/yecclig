@@ -3,6 +3,8 @@ WS = [^a-zA-Z\.]+
 
 Rules.
 \.       : {token,{'.',TokenLine}}.
+is       : {token,{'is',TokenLine}}.
+and      : {token,{'and',TokenLine}}.
 red      : {token,{adjective,TokenLine,TokenChars}}.
 orange   : {token,{adjective,TokenLine,TokenChars}}.
 salty    : {token,{adjective,TokenLine,TokenChars}}.
