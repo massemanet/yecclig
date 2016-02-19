@@ -1,8 +1,9 @@
 Definitions.
-WS = [^a-zA-Z\.]+
+WS = [^a-zA-Z\.,]+
 
 Rules.
 \.       : {token,{'.',TokenLine}}.
+,        : {token,{',',TokenLine}}.
 is       : {token,{'is',TokenLine}}.
 and      : {token,{'and',TokenLine}}.
 red      : {token,{adjective,TokenLine,TokenChars}}.

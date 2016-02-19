@@ -3,7 +3,7 @@ adjectives sentence sentences.
 
 Terminals
 article noun adjective
-'.' 'is' 'and' .
+'.' ',' 'is' 'and' .
 
 Rootsymbol sentences.
 
@@ -16,5 +16,5 @@ sentence -> adjectives noun '.'              : {sentence,{[],'$1','$2'}}.
 sentence -> article adjectives noun '.'      : {sentence,{'$1','$2','$3'}}.
 
 adjectives -> adjective 'and' adjectives : ['$1'|'$3'].
-adjectives -> adjective adjectives       : ['$1'|'$2'].
+adjectives -> adjective ',' adjectives   : ['$1'|'$3'].
 adjectives -> adjective                  : ['$1'].
